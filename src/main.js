@@ -11,6 +11,9 @@ import 'quasar-extras/roboto-font'
 import 'quasar-extras/material-icons'
 import Quasar from 'quasar'
 
+import VueHead from 'vue-head'
+
+Vue.use(VueHead)
 Vue.use(Quasar, {
   config: {}, i18n: lang
 })

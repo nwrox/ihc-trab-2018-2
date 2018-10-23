@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-layout-header>
       <q-toolbar
-        color="primary"
+        color="dark"
         :glossy="$q.theme === 'mat'"
         :inverted="$q.theme === 'ios'"
       >
@@ -13,14 +13,32 @@
           @click="leftDrawerOpen = !leftDrawerOpen"
           aria-label="Menu"
           icon="menu"
+          label=""
+          role="button"
         />
 
         <q-toolbar-title>
-          Quasar App
-          <div slot="subtitle">Running on Quasar v{{ $q.version }}</div>
+          Águas Claras
+          <div slot="subtitle">Sua melhor opção em hotelaria em raposo</div>
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-header>
+
+    <q-layout-footer
+      v-model="footer"
+      :reveal="footerReveal"
+    >
+      <demo-tabs v-if="$q.theme === 'ios'" />
+      <q-toolbar
+        color="dark"
+        :inverted="$q.theme === 'ios'"
+        style="text-align: center;"
+      >
+        <q-toolbar-title>
+          Avenida Coronel Balbino França, 400 - Raposo - RJ - CEP: 28333000
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-layout-footer>
 
     <q-layout-drawer
       v-model="leftDrawerOpen"
@@ -32,33 +50,24 @@
         inset-delimiter
       >
         <q-list no-border link inset-delimiter>
-          <q-list-header>Navigation</q-list-header>
+          <q-list-header>
+          Navigation
+          </q-list-header>
           <q-item to="/" exact>
             <q-item-side icon="home" />
-            <q-item-main label="Home" />
+            <q-item-main label="Inicial" />
           </q-item>
-          <q-item to="/about">
-            <q-item-side icon="info_outline" />
-            <q-item-main label="About" />
+          <q-item to="/fale_conosco">
+            <q-item-side icon="local_phone" />
+            <q-item-main label="Fale Conosco" />
           </q-item>
-
-          <q-item-separator />
-          <q-list-header>Essential Links</q-list-header>
-          <q-item @click.native="openURL('http://quasar-framework.org')">
-            <q-item-side icon="school" />
-            <q-item-main label="Docs" sublabel="quasar-framework.org"></q-item-main>
+          <q-item to="/fotos">
+            <q-item-side icon="photo" />
+            <q-item-main label="Fotos" />
           </q-item>
-          <q-item @click.native="openURL('https://discord.gg/5TDhbDg')">
-            <q-item-side icon="chat" />
-            <q-item-main label="Discord Chat Channel" sublabel="https://discord.gg/5TDhbDg"></q-item-main>
-          </q-item>
-          <q-item @click.native="openURL('http://forum.quasar-framework.org')">
-            <q-item-side icon="forum" />
-            <q-item-main label="Forum" sublabel="forum.quasar-framework.org"></q-item-main>
-          </q-item>
-          <q-item @click.native="openURL('https://twitter.com/quasarframework')">
-            <q-item-side icon="rss feed" />
-            <q-item-main label="Twitter" sublabel="@quasarframework"></q-item-main>
+          <q-item to="/instalacoes">
+            <q-item-side icon="domain" />
+            <q-item-main label="Instalações" />
           </q-item>
         </q-list>
       </q-list>
@@ -71,20 +80,39 @@
 </template>
 
 <script>
-import { openURL } from 'quasar'
-
 export default {
   name: 'LayoutDefault',
-  data () {
-    return {
-      leftDrawerOpen: this.$q.platform.is.desktop
-    }
-  },
-  methods: {
-    openURL
+  data: () => ({
+    footer: true,
+    footerReveal: false,
+    headerReveal: false,
+    leftDrawerOpen: false
+  }),
+  mounted () {
+    this.leftDrawerOpen = !this.$q
+      .platform
+      .is
+      .desktop
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+$list-color: #000;
+
+.q-list-header {
+  font-weight: bold;
+}
+
+.q-list-header,
+.q-item-label,
+.q-item-side {
+  color: $list-color !important;
+}
+
+@media screen and (max-width: 680px) {
+  .q-toolbar-title {
+    white-space: normal;
+  }
+}
 </style>
