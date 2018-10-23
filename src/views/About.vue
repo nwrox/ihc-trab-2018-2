@@ -34,8 +34,8 @@ export default {
 #container {
   #bg {
     background: url('../assets/fundo5.jpg') no-repeat;
-    background-size: contain;
     background-position: 50% center;
+    background-size: contain;
     height: 250px;
     margin: 0 auto;
     margin-bottom: 25px;

@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-Vue.use(Router)
+import About from './views/About'
+import DefaultLayout from './layouts/Default'
+import Domains from './views/Domains'
+import Home from './views/Home'
+import Photos from './views/Photos'
 
-const About = () => import(/* webpackChunkName: "about-view" */'./views/About')
-const DefaultLayout = () => import(/* webpackChunkName: "default-layout" */'./layouts/Default')
-const Domains = () => import(/* webpackChunkName: "domain-view" */'./views/Domains')
-const Home = () => import(/* webpackChunkName: "home-view" */'./views/Home')
-const Photos = () => import(/* webpackChunkName: "photos-view" */'./views/Photos')
+Vue.use(Router)
 
 export default new Router({
   mode: 'history',
