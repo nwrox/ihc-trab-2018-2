@@ -36,6 +36,26 @@
       >
         <q-toolbar-title>
           Avenida Coronel Balbino França, 400 - Raposo - RJ - CEP: 28333000
+          <span slot="subtitle">
+            <span>
+              <q-icon name="phone" />
+              &nbsp;
+              (22) 3847-2112 (Reservas)
+            </span>
+            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span>
+              <q-icon name="email" />
+              &nbsp;
+              hotelaguasclarasderaposo@hotmail.com
+            </span>
+            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <vue-goodshare-facebook
+              page_url="https://www.facebook.com/hotelaguasclarasderaposo"
+              button_design="outline"
+              has_counter
+              has_icon
+            ></vue-goodshare-facebook>
+          </span>
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-footer>
@@ -51,15 +71,11 @@
       >
         <q-list no-border link inset-delimiter>
           <q-list-header>
-          Navigation
+          Navegação
           </q-list-header>
           <q-item to="/" exact>
             <q-item-side icon="home" />
             <q-item-main label="Inicial" />
-          </q-item>
-          <q-item to="/fale_conosco">
-            <q-item-side icon="local_phone" />
-            <q-item-main label="Fale Conosco" />
           </q-item>
           <q-item to="/fotos">
             <q-item-side icon="photo" />
@@ -80,8 +96,11 @@
 </template>
 
 <script>
+import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook'
+
 export default {
   name: 'LayoutDefault',
+  components: { VueGoodshareFacebook },
   data: () => ({
     footer: true,
     footerReveal: false,
@@ -97,7 +116,24 @@ export default {
 }
 </script>
 
+<style lang="css">
+.button-social {
+  padding: 3px 5px !important;
+}
+
+.counter-facebook {
+  border-left: 1px solid rgba(255, 255, 255, .5) !important;
+}
+
+.facebook__design__outline {
+  background-color: transparent !important;
+  border: solid 1px #fff !important;
+  color: #fff !important;
+}
+</style>
+
 <style lang="scss" scoped>
+$color: #fff;
 $list-color: #000;
 
 .q-list-header {

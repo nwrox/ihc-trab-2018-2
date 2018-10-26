@@ -22,11 +22,6 @@ export default new Router({
           component: Home
         },
         {
-          path: '/fale_conosco',
-          name: 'fale_conosco',
-          component: About
-        },
-        {
           path: '/fotos',
           name: 'fotos',
           component: Photos
