@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import About from './views/About'
 import DefaultLayout from './layouts/Default'
 import Domains from './views/Domains'
 import Home from './views/Home'
